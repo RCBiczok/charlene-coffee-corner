@@ -5,7 +5,7 @@ package coffee.charlene.ch;
  */
 public interface Purchasable {
 
-    public static final String RECEIPT_LINES_DELIMITER = "\n";
+    String RECEIPT_LINES_DELIMITER = "\n";
 
     /**
      * Assumption: receipt can be multi-line, as it might have additional components (extras)

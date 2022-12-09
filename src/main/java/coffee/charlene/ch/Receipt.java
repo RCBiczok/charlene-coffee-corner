@@ -7,10 +7,10 @@ import static coffee.charlene.ch.Purchasable.RECEIPT_LINES_DELIMITER;
 
 public class Receipt {
     private final Order order;
-    private final List<Purchasable> deductedItems;
+    private final List<? extends Purchasable> deductedItems;
     private final BeverageStamp beverageStamp;
 
-    public Receipt(final Order order, final List<Purchasable> deductedItems, final BeverageStamp beverageStamp) {
+    public Receipt(final Order order, final List<? extends Purchasable> deductedItems, final BeverageStamp beverageStamp) {
         this.order = order;
         this.deductedItems = deductedItems;
         this.beverageStamp = beverageStamp;
@@ -20,7 +20,7 @@ public class Receipt {
         return order;
     }
 
-    public List<Purchasable> getDeductedItems() {
+    public List<? extends Purchasable> getDeductedItems() {
         return deductedItems;
     }
 
@@ -46,7 +46,7 @@ public class Receipt {
                 String.format("\nTOTAL: %.2f CHF", this.getTotalPrice()) +
                 "\nNew Stamps: " +
                 this.getBeverageStamp().getStampCount() +
-                "\n==================================";
+                "\n====================================";
     }
 
     public double getTotalPrice() {

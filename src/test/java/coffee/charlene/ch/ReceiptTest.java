@@ -20,7 +20,7 @@ public class ReceiptTest {
                 "Deducted items: \n" +
                 "TOTAL: 0.00 CHF\n" +
                 "New Stamps: 0\n" +
-                "==================================", order.toSummaryString());
+                "====================================", order.toSummaryString());
         Assertions.assertEquals(0, order.getTotalPrice());
     }
 
@@ -49,7 +49,7 @@ public class ReceiptTest {
                 "- Coffee (medium) 3.00 CHF\n" +
                 "TOTAL: 8.95 CHF\n" +
                 "New Stamps: 1\n" +
-                "==================================", order.toSummaryString());
+                "====================================", order.toSummaryString());
         Assertions.assertEquals(8.95, order.getTotalPrice(), 0.001);
     }
 }
