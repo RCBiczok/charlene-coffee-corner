@@ -50,6 +50,6 @@ public class ReceiptTest {
                 "TOTAL: 8.95 CHF\n" +
                 "New Stamps: 1\n" +
                 "====================================", order.toSummaryString());
-        Assertions.assertEquals(8.95, order.getTotalPrice(), 0.001);
+        Assertions.assertEquals(8.95, order.getTotalPrice(), TestConstants.PRICE_EPSILON);
     }
 }

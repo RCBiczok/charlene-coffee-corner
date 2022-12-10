@@ -36,6 +36,6 @@ public class OrderTest {
                 "- Bacon Roll 4.50 CHF\n" +
                 "- Freshly squeezed orange juice (0.25l) 3.95 CHF\n" +
                 "==================================", order.toSummaryString());
-        Assertions.assertEquals(11.95, order.getTotalPrice(), 0.001);
+        Assertions.assertEquals(11.95, order.getTotalPrice(), TestConstants.PRICE_EPSILON);
     }
 }

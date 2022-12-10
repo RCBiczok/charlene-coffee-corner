@@ -13,7 +13,7 @@ public class SpecialRoastCoffeeTest {
         final SpecialRoastCoffee specialRoastCoffee = new SpecialRoastCoffee();
         Assertions.assertEquals("Special roast coffee", specialRoastCoffee.getProductName());
         Assertions.assertEquals("- Special roast coffee 0.90 CHF", specialRoastCoffee.getReceiptLines());
-        Assertions.assertEquals(0.9, specialRoastCoffee.getPrice(), 0.001);
-        Assertions.assertEquals(0.9, specialRoastCoffee.getTotalPrice(), 0.001);
+        Assertions.assertEquals(0.9, specialRoastCoffee.getPrice(), TestConstants.PRICE_EPSILON);
+        Assertions.assertEquals(0.9, specialRoastCoffee.getTotalPrice(), TestConstants.PRICE_EPSILON);
     }
 }
