@@ -7,12 +7,10 @@ import static coffee.charlene.ch.Purchasable.RECEIPT_LINES_DELIMITER;
 
 public class Receipt {
     private final Order order;
-    private final List<? extends Purchasable> deductedItems;
     private final BeverageStamp beverageStamp;
 
-    public Receipt(final Order order, final List<? extends Purchasable> deductedItems, final BeverageStamp beverageStamp) {
+    public Receipt(final Order order, final BeverageStamp beverageStamp) {
         this.order = order;
-        this.deductedItems = deductedItems;
         this.beverageStamp = beverageStamp;
     }
 
@@ -20,9 +18,6 @@ public class Receipt {
         return order;
     }
 
-    public List<? extends Purchasable> getDeductedItems() {
-        return deductedItems;
-    }
 
     public BeverageStamp getBeverageStamp() {
         return beverageStamp;
@@ -38,11 +33,6 @@ public class Receipt {
                 this.order.getItems().stream()
                         .map(Purchasable::getReceiptLines)
                         .collect(Collectors.joining(RECEIPT_LINES_DELIMITER)) +
-                "\nDeducted items: " +
-                (this.getDeductedItems().size() > 0 ? "\n" : "") +
-                this.getDeductedItems().stream()
-                        .map(Purchasable::getReceiptLines)
-                        .collect(Collectors.joining(RECEIPT_LINES_DELIMITER)) +
                 String.format("\nTOTAL: %.2f CHF", this.getTotalPrice()) +
                 "\nNew Stamps: " +
                 this.getBeverageStamp().getStampCount() +
@@ -50,7 +40,6 @@ public class Receipt {
     }
 
     public double getTotalPrice() {
-        return this.order.getItems().stream().mapToDouble(Purchasable::getTotalPrice).sum()
-                - this.deductedItems.stream().mapToDouble(Purchasable::getTotalPrice).sum();
+        return this.order.getTotalPrice();
     }
 }
