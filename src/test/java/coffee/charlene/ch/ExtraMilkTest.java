@@ -10,11 +10,15 @@ import org.junit.jupiter.api.Test;
 public class ExtraMilkTest {
 
     @Test
-    public void shouldHaveFixedProperties() {
+    public void shouldHaveFixedPropertiesExceptPrice() {
         final ExtraMilk extraMilk = new ExtraMilk();
         Assertions.assertEquals("Extra milk", extraMilk.getProductName());
         Assertions.assertEquals("- Extra milk 0.30 CHF", extraMilk.getReceiptLines());
         Assertions.assertEquals(0.3, extraMilk.getPrice(), 0.001);
         Assertions.assertEquals(0.3, extraMilk.getTotalPrice(), 0.001);
+        extraMilk.setPrice(0);
+        Assertions.assertEquals("- Extra milk 0.00 CHF", extraMilk.getReceiptLines());
+        Assertions.assertEquals(0.0, extraMilk.getPrice(), 0.001);
+        Assertions.assertEquals(0.0, extraMilk.getTotalPrice(), 0.001);
     }
 }

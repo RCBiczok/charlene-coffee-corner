@@ -24,6 +24,11 @@ public interface Purchasable {
     double getPrice();
 
     /**
+     * Updates the price to reflect discounts
+     */
+    void setPrice(final double price);
+
+    /**
      * @return the price including all extras
      */
     default double getTotalPrice() {

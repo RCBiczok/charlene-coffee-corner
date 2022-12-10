@@ -5,14 +5,13 @@ package coffee.charlene.ch;
  * Assumption is that no extra can be purchased without a {@link Coffee}
  * and it cannot be between {@link Coffee} instances
  */
-public class ExtraMilk implements CoffeeAddable {
-    @Override
-    public String getProductName() {
-        return "Extra milk";
+public class ExtraMilk extends AbstractProduct implements CoffeeAddable {
+    public ExtraMilk() {
+        super(0.3);
     }
 
     @Override
-    public double getPrice() {
-        return 0.3;
+    public String getProductName() {
+        return "Extra milk";
     }
 }

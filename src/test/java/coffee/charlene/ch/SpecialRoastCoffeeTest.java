@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  */
 public class SpecialRoastCoffeeTest {
     @Test
-    public void shouldHaveFixedProperties() {
+    public void shouldHaveFixedPropertiesExceptPrice() {
         final SpecialRoastCoffee specialRoastCoffee = new SpecialRoastCoffee();
         Assertions.assertEquals("Special roast coffee", specialRoastCoffee.getProductName());
         Assertions.assertEquals("- Special roast coffee 0.90 CHF", specialRoastCoffee.getReceiptLines());

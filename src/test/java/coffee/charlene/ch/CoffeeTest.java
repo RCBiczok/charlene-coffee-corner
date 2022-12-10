@@ -50,4 +50,20 @@ public class CoffeeTest {
         Assertions.assertEquals(3.0, coffeeMedium.getPrice(), 0.001);
         Assertions.assertEquals(4.4, coffeeMedium.getTotalPrice(), 0.001);
     }
+
+    @Test
+    public void canChangeItsPrice() {
+        final Coffee coffeeSmall = new Coffee(CoffeeSize.SMALL, List.of(new ExtraMilk()));
+        Assertions.assertEquals("Coffee (small)", coffeeSmall.getProductName());
+        Assertions.assertEquals("- Coffee (small) 2.50 CHF\n" +
+                "   - Extra milk 0.30 CHF", coffeeSmall.getReceiptLines());
+        Assertions.assertEquals(2.5, coffeeSmall.getPrice(), 0.001);
+        Assertions.assertEquals(2.8, coffeeSmall.getTotalPrice(), 0.001);
+        coffeeSmall.setPrice(0);
+        Assertions.assertEquals("Coffee (small)", coffeeSmall.getProductName());
+        Assertions.assertEquals("- Coffee (small) 0.00 CHF\n" +
+                "   - Extra milk 0.30 CHF", coffeeSmall.getReceiptLines());
+        Assertions.assertEquals(0.0, coffeeSmall.getPrice(), 0.001);
+        Assertions.assertEquals(0.3, coffeeSmall.getTotalPrice(), 0.001);
+    }
 }

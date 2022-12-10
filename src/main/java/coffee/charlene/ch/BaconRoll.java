@@ -3,14 +3,13 @@ package coffee.charlene.ch;
 /**
  * Represents beacon roll.
  */
-public class BaconRoll implements Eatable {
-    @Override
-    public String getProductName() {
-        return "Bacon Roll";
+public class BaconRoll extends AbstractProduct implements Eatable {
+    public BaconRoll() {
+        super(4.5);
     }
 
     @Override
-    public double getPrice() {
-        return 4.5;
+    public String getProductName() {
+        return "Bacon Roll";
     }
 }

@@ -1,12 +1,11 @@
 package coffee.charlene.ch;
 
-public class FoamedMilk implements CoffeeAddable {
+public abstract class AbstractProduct implements Purchasable {
 
-    private double price = 0.5;
+    private double price;
 
-    @Override
-    public String getProductName() {
-        return "Foamed milk";
+    public AbstractProduct(final double price) {
+        this.price = price;
     }
 
     @Override

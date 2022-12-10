@@ -1,13 +1,13 @@
 package coffee.charlene.ch;
 
-public class SpecialRoastCoffee implements CoffeeAddable {
+public class SpecialRoastCoffee extends AbstractProduct implements CoffeeAddable {
+    public SpecialRoastCoffee() {
+        super(0.9);
+    }
+
     @Override
     public String getProductName() {
         return "Special roast coffee";
     }
 
-    @Override
-    public double getPrice() {
-        return 0.9;
-    }
 }

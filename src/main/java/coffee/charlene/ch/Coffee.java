@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class Coffee implements Drinkable {
+public class Coffee extends AbstractProduct implements Drinkable {
 
     private static final String PADDING = "   ";
 
@@ -17,6 +17,7 @@ public class Coffee implements Drinkable {
     }
 
     public Coffee(final CoffeeSize size, final List<CoffeeAddable> extras) {
+        super(size.getPrice());
         this.size = size;
         this.extras = Objects.requireNonNull(extras);
     }
@@ -38,12 +39,7 @@ public class Coffee implements Drinkable {
     }
 
     @Override
-    public double getPrice() {
-        return this.size.getPrice();
-    }
-
-    @Override
     public double getTotalPrice() {
-        return this.size.getPrice() + this.extras.stream().mapToDouble(Purchasable::getTotalPrice).sum();
+        return this.getPrice() + this.extras.stream().mapToDouble(Purchasable::getTotalPrice).sum();
     }
 }
